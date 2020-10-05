@@ -2,10 +2,9 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "..\\..\\..\\..\\..\\..\\..\\..\\..\\xampp\\htdocs"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "CRUD"
+	}
 }
