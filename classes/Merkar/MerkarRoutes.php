@@ -11,18 +11,24 @@ class MerkarRoutes implements \Generic\Routes
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
         $this->userTable = new \Generic\DatabaseTable($pdo, 'user', 'user_id', '\Merkar\Entity\User');
+        $this->authentication = new \Generic\Authentication($this->userTable, 'user_email', 'user_password');
     }
 
     public function getRoutes(): array
     {
         $userController = new \Merkar\Controllers\User($this->userTable);
+        $loginController = new \Merkar\Controllers\Login($this->authentication);
 
         $routes = [
             '' => [
                 'GET' => [
-                    'controller' => $userController,
-                    'action' => 'list'
+                    'controller' => $loginController,
+                    'action' => 'loginForm'
                 ],
+                'POST' => [
+                    'controller' => $loginController,
+                    'action' => 'processLogin'
+                ]
             ],
             'user/list' => [
                 'GET' => [

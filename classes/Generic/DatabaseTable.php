@@ -26,6 +26,29 @@ class DatabaseTable
         return $query;
     }
 
+    public function find($column, $value, $orderBy = null, $limit = null, $offset = null)
+    {
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE ' . $column . ' = :value';
+        $parameters = [
+            'value' => $value
+        ];
+
+        if ($orderBy != null) {
+            $query .= ' ORDER BY ' . $orderBy;
+        }
+ 
+        if ($limit != null) {
+            $query .= ' LIMIT ' . $limit;
+        }
+ 
+        if ($offset != null) {
+         $query .= ' OFFSET ' . $limit;
+        }
+        
+        $query = $this->query($query, $parameters);
+        return $query->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
+    }
+
     public function findAll($orderBy= null, $limit = null, $offset = null)
     {
         $query = 'SELECT * FROM ' . $this->table;

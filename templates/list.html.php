@@ -17,7 +17,7 @@ $_SESSION["check"] = $check;
   </div>
 </div>
 
-<table class="table table-sm table-bordered table-responsive-md ">
+<table class="table table-sm table-bordered table-responsive-md">
   <thead class="thead-light">
     <tr class="text-center">
       <th scope="col">Nombres</th>

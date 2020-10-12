@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset="utf8">
+    <style>
+        nav > ul
+        {
+            font-family:Arial, Helvetica, sans-serif;
+            background-color: white;
+            padding: 1rem;
+            margin:  1rem;
+            border: .0625rem solid rgba(233, 233, 233, 0.863);
+            border-radius: .4rem;
+            box-shadow: .1rem .1rem 1rem rgba(187, 180, 180, 0.842);
+            display: flex;
+        }
+        nav ul li {
+            flex: 1 auto;
+            list-style: none;
+        }
+        .submenu {
+            display: none;
+        }
+
+        nav ul:hover ul li
+        {
+            display: block;
+            margin-top: .5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>Inicio</li>
+            <li>Productos
+                <ul>
+                    <li class='submenu'>Lácteos</li>
+                    <li class='submenu'>Despensa</li>
+                    <li class='submenu'>Carnes</li>
+                    <li class='submenu'>Verduras</li>
+                    <li class='submenu'>Frutas</li>
+                </ul>
+            </li>
+            <li>Quienes Somos</li>
+            <li>Contacto</li>
+        </ul>
+    </nav>
+</body>
+
+</html>
