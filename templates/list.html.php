@@ -1,5 +1,4 @@
 <?php  
-session_start(); 
 $check = 1; 
 $_SESSION["check"] = $check; 
 ?> 

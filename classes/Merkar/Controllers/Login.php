@@ -24,9 +24,10 @@ class Login
 
     public function processLogin()
     {
+
         if ($this->authentication->login($_POST['user_email'], $_POST['user_password']))
         {
-            header('location: www.google.com');
+            header('location: /user/list');
         } else {
             echo 'Fallido';
         }

@@ -2,15 +2,16 @@
 
 namespace Merkar\Controllers;
 
-use \Generic\DatabaseTable;
+use \Generic\DatabaseTable, \Generic\Authentication;
 
 class User
 {
     private $usersTable;
     
-    public function __construct(DatabaseTable $userTable)
+    public function __construct(DatabaseTable $userTable, Authentication $authentication)
     {
      $this->userTable = $userTable;   
+     $this->authentication = $authentication;
     }
 
     public function edit()
@@ -32,6 +33,8 @@ class User
     }
     public function list()
     {
+        $this->authentication->validateSession();
+        
         $users = $this->userTable->findAll();
         $title = 'Lista de Usuarios';
         return ['template' => 'list.html.php',

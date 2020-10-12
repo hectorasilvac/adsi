@@ -16,7 +16,7 @@ class MerkarRoutes implements \Generic\Routes
 
     public function getRoutes(): array
     {
-        $userController = new \Merkar\Controllers\User($this->userTable);
+        $userController = new \Merkar\Controllers\User($this->userTable, $this->authentication);
         $loginController = new \Merkar\Controllers\Login($this->authentication);
 
         $routes = [
